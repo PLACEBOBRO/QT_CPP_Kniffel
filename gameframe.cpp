@@ -5,12 +5,8 @@
 #include <QDebug>
 
 
-
 int dices[] = {0,0,0,0,0};
 int dices_size = sizeof(dices)/sizeof(dices[0]);
-
-
-
 
 GameFrame::GameFrame(QWidget *parent) :
     QDialog(parent),
@@ -25,10 +21,18 @@ GameFrame::~GameFrame()
     delete ui;
 }
 
+
 void GameFrame::on_wuerfeln_clicked()
 {
     for (int i=0;i<dices_size; i++) {
         dices[i] = rand() % 6 + 1;
-        qDebug() << dices[i];
+        switch (dices[i]) {
+            case 1:;
+            case 2:;
+            case 3:;
+            case 4:;
+            case 5:;
+            case 6:;
+        }
     }
 }
