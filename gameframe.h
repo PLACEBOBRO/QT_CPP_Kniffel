@@ -18,6 +18,18 @@ public:
 private slots:
     void on_wuerfeln_clicked();
 
+    void on_button_einser_clicked();
+
+    void on_button_zweier_clicked();
+
+    void on_button_dreier_clicked();
+
+    void on_button_vierer_clicked();
+
+    void on_button_fuenfer_clicked();
+
+    void on_button_sechser_clicked();
+
 private:
     Ui::GameFrame *ui;
 };

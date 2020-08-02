@@ -173,7 +173,7 @@
     <rect>
      <x>190</x>
      <y>20</y>
-     <width>81</width>
+     <width>82</width>
      <height>271</height>
     </rect>
    </property>
@@ -477,56 +477,6 @@
     <enum>Qt::Vertical</enum>
    </property>
   </widget>
-  <widget class="QGraphicsView" name="dice_3">
-   <property name="geometry">
-    <rect>
-     <x>700</x>
-     <y>20</y>
-     <width>131</width>
-     <height>131</height>
-    </rect>
-   </property>
-  </widget>
-  <widget class="QGraphicsView" name="dice_2">
-   <property name="geometry">
-    <rect>
-     <x>550</x>
-     <y>20</y>
-     <width>131</width>
-     <height>131</height>
-    </rect>
-   </property>
-  </widget>
-  <widget class="QGraphicsView" name="dice_1">
-   <property name="geometry">
-    <rect>
-     <x>400</x>
-     <y>20</y>
-     <width>131</width>
-     <height>131</height>
-    </rect>
-   </property>
-  </widget>
-  <widget class="QGraphicsView" name="dice_5">
-   <property name="geometry">
-    <rect>
-     <x>630</x>
-     <y>170</y>
-     <width>131</width>
-     <height>131</height>
-    </rect>
-   </property>
-  </widget>
-  <widget class="QGraphicsView" name="dice_4">
-   <property name="geometry">
-    <rect>
-     <x>470</x>
-     <y>170</y>
-     <width>131</width>
-     <height>131</height>
-    </rect>
-   </property>
-  </widget>
   <widget class="QPushButton" name="wuerfeln">
    <property name="geometry">
     <rect>
@@ -538,6 +488,56 @@
    </property>
    <property name="text">
     <string>Würfeln</string>
+   </property>
+  </widget>
+  <widget class="QLCDNumber" name="dice2">
+   <property name="geometry">
+    <rect>
+     <x>530</x>
+     <y>20</y>
+     <width>151</width>
+     <height>101</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QLCDNumber" name="dice1">
+   <property name="geometry">
+    <rect>
+     <x>360</x>
+     <y>20</y>
+     <width>151</width>
+     <height>101</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QLCDNumber" name="dice5">
+   <property name="geometry">
+    <rect>
+     <x>620</x>
+     <y>140</y>
+     <width>151</width>
+     <height>101</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QLCDNumber" name="dice3">
+   <property name="geometry">
+    <rect>
+     <x>700</x>
+     <y>20</y>
+     <width>151</width>
+     <height>101</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QLCDNumber" name="dice4">
+   <property name="geometry">
+    <rect>
+     <x>440</x>
+     <y>140</y>
+     <width>151</width>
+     <height>101</height>
+    </rect>
    </property>
   </widget>
  </widget>
