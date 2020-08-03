@@ -8,4 +8,4 @@
 - To execute the file run the command "./#nameOfFile#"
 
 ## Troubleshooting
-- Program won't run: Maybe you don't have root rights. Just add "sudo ./#nameOfFile#" to your execute command
+- Program won't run: Maybe you don't have root rights. Just add "sudo ./#nameOfFile#" to your execute command (Ubuntu)
