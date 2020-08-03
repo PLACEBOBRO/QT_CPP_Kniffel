@@ -30,6 +30,22 @@ private slots:
 
     void on_button_sechser_clicked();
 
+    void on_button_drp_clicked();
+
+    void on_buttonvip_clicked();
+
+    void on_button_fh_clicked();
+
+    void on_button_ks_clicked();
+
+    void on_button_gs_clicked();
+
+    void on_button_kniffel_clicked();
+
+    void on_button_chance_clicked();
+
+    void on_pushButton_clicked();
+
 private:
     Ui::GameFrame *ui;
 };
