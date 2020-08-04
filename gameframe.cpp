@@ -141,7 +141,6 @@ void GameFrame::calculateScoreTop(){
     if(sum >= 63){
         sum += 25;
     }
-    qDebug() << "Summe oben: "<< sum;
     ui->summe_oben->setText(QString::number(sum));
 }
 
