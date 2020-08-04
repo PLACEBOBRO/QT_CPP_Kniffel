@@ -543,14 +543,14 @@
   <widget class="QPushButton" name="pushButton">
    <property name="geometry">
     <rect>
-     <x>750</x>
+     <x>725</x>
      <y>730</y>
-     <width>106</width>
+     <width>131</width>
      <height>30</height>
     </rect>
    </property>
    <property name="text">
-    <string>Schließen</string>
+    <string>Spiel beenden</string>
    </property>
   </widget>
   <widget class="QPushButton" name="reroll">

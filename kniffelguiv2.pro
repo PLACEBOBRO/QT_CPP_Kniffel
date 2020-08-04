@@ -4,8 +4,7 @@
 #
 #-------------------------------------------------
 
-QT       += core gui
-
+QT       += core gui multimedia
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 TARGET = kniffelguiv2
@@ -27,17 +26,23 @@ CONFIG += c++11
 SOURCES += \
         main.cpp \
         mainwindow.cpp \
-    gameframe.cpp
+    gameframe.cpp \
+    instructionframe.cpp
 
 HEADERS += \
         mainwindow.h \
-    gameframe.h
+    gameframe.h \
+    instructionframe.h
 
 FORMS += \
         mainwindow.ui \
-    gameframe.ui
+    gameframe.ui \
+    instructionframe.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+RESOURCES += \
+    src.qrc
