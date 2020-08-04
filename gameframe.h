@@ -46,6 +46,16 @@ private slots:
 
     void on_pushButton_clicked();
 
+    void calculateOverallScore();
+
+    void calculateScoreTop();
+
+    void calculateScoreBottom();
+
+    void on_reroll_clicked();
+
+    void resetRerollCounter();
+
 private:
     Ui::GameFrame *ui;
 };

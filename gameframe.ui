@@ -553,6 +553,19 @@
     <string>Schließen</string>
    </property>
   </widget>
+  <widget class="QPushButton" name="reroll">
+   <property name="geometry">
+    <rect>
+     <x>470</x>
+     <y>470</y>
+     <width>291</width>
+     <height>101</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Nochmal würfeln (2)</string>
+   </property>
+  </widget>
  </widget>
  <resources/>
  <connections/>
