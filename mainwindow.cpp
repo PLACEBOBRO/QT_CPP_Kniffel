@@ -2,6 +2,7 @@
 #include "ui_mainwindow.h"
 #include "gameframe.h"
 #include "instructionframe.h"
+#include <QMediaPlaylist>
 #include <QMediaPlayer>
 
 MainWindow::MainWindow(QWidget *parent) :
@@ -11,8 +12,11 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
 
     // Background music
+    QMediaPlaylist * playlist = new QMediaPlaylist();
+    playlist->addMedia(QUrl("qrc:/sounds/backgroundmusic.mp3"));
+    playlist->setPlaybackMode(QMediaPlaylist::Loop);
     QMediaPlayer * music = new QMediaPlayer();
-    music->setMedia(QUrl("qrc:/sounds/backgroundmusic.mp3"));
+    music->setMedia(playlist);
     music->setVolume(20);
     music->play();
 }

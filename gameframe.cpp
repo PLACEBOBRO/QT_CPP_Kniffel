@@ -37,67 +37,87 @@ GameFrame::~GameFrame()
 }
 
 // Check if dices are "Straße"
-int isStreet(){
+int isSmallStreet(){
     int counter = 1;
     int result = 0;
     for(int i=1;i<dices_size;i++){
         if(dices[i] == dices[i-1]){
             continue;
         }
-        if(dices[i] == dices[i-1]+1){
+        if(dices[i-1]+1 == dices[i]){
             counter++;
-            if(counter >=4){
+            if(counter == 4){
+                result = 1;
                 break;
             }
         }else{
             counter = 1;
         }
     }
-    if(counter >= 4){
-        result = 1;
-    }
-    if(counter == 5){
-        result = 2;
-    }
     return result;
 
 }
 
-// Check if dices are "Pasch"
-int isPasch(){
-    int counter = 1;
-    int result = 0;
-    for (int i=1;i<dices_size;i++) {
-        if(dices[i] == dices[i-1]){
-            counter++;
-            if(counter >=3){
-                break;
-            }
-        }else{
-            counter = 1;
+int isBigStreet(){
+    for(int i = 1; i < dices_size; i++){
+        if(dices[i] != dices[i-1]+1){
+            return 0;
         }
     }
-    if(counter == 3){
-        result = 1;
-    }
-    if(counter >= 4){
-        result = 2;
-    }
-    return result;
+    return 1;
 }
 
-// Check if all dices have the same value
-int isKniffel(){
-    if(dices[0] == dices[1] == dices[2] == dices[3] == dices[4]){
+int is4Pasch(){
+    if(dices[0] == dices[1] && dices[1] == dices[2] && dices[2] == dices[3]){
+        return 1;
+    }
+    if(dices[1] == dices[2] && dices[2] == dices[3] && dices[3] == dices[4]){
         return 1;
     }
     return 0;
 }
 
+// Check if dices are "Pasch"
+int is3Pasch(){
+    int counter = 1;
+    int result = 0;
+    for (int i=1;i<dices_size;i++) {
+        if(dices[i] == dices[i-1]){
+            counter++;
+            if(counter == 3){
+                result = 1;
+                break;
+            }
+        }else{
+            counter = 1;
+        }
+    }
+
+    return result;
+}
+
+// Check if all dices have the same value
+int isKniffel(){
+    for(int i = 0; i < dices_size-1; i++){
+        if(dices[i] != dices[i+1]){
+            return 0;
+        }
+    }
+    return 1;
+}
+
 // Check if dices are full house
 int isFullHouse(){
-    if((dices[0] == dices[1] == dices[2] && dices[3] == dices[4]) || (dices[0] == dices[1] && dices[2] == dices[3] == dices[4])){
-        return 1;
+    if(dices[0] == dices[1] && dices[1] == dices[2]){
+        if(dices[3] == dices[4]){
+            return 1;
+        }
+    }
+
+    if(dices[0] == dices[1]){
+        if(dices[2] == dices[3] && dices[3] == dices[4]){
+            return 1;
+        }
     }
     return 0;
 }
@@ -171,7 +191,6 @@ void GameFrame::on_wuerfeln_clicked()
     for (int i=0;i<dices_size; i++) {
         dices[i] = rand() % 6 + 1;
     }
-
     ui->dice1->display(dices[0]);
     ui->dice2->display(dices[1]);
     ui->dice3->display(dices[2]);
@@ -258,7 +277,7 @@ void GameFrame::on_button_sechser_clicked()
 
 void GameFrame::on_button_drp_clicked()
 {
-    if(isPasch() == 1 || isPasch() == 2){
+    if(is3Pasch() == 1 || is4Pasch() == 1){
         ui->dreierpasch->setText(QString::number(generateSumAllDices()));
     }else{
         ui->dreierpasch->setText("0");
@@ -271,7 +290,7 @@ void GameFrame::on_button_drp_clicked()
 
 void GameFrame::on_buttonvip_clicked()
 {
-    if(isPasch() == 2){
+    if(is4Pasch() == 1){
         ui->viererpasch->setText(QString::number(generateSumAllDices()));
     }else{
         ui->viererpasch->setText("0");
@@ -297,7 +316,7 @@ void GameFrame::on_button_fh_clicked()
 
 void GameFrame::on_button_ks_clicked()
 {
-    if(isStreet() == 1 || isStreet() == 2){
+    if(isSmallStreet() == 1 || isBigStreet() == 1){
         ui->kleinestrasse->setText("30");
     }else{
         ui->kleinestrasse->setText("0");
@@ -310,7 +329,7 @@ void GameFrame::on_button_ks_clicked()
 
 void GameFrame::on_button_gs_clicked()
 {
-    if(isStreet() == 2){
+    if(isBigStreet() == 1){
         ui->grossestrasse->setText("40");
     }else{
         ui->grossestrasse->setText("0");
@@ -347,4 +366,56 @@ void GameFrame::on_button_chance_clicked()
 void GameFrame::on_pushButton_clicked()
 {
     this->close();
+}
+
+// Reset all values and dices
+void GameFrame::on_restart_clicked()
+{
+    ui->einser->setText("---");
+    ui->zweier->setText("---");
+    ui->dreier->setText("---");
+    ui->vierer->setText("---");
+    ui->fuenfer->setText("---");
+    ui->sechser->setText("---");
+
+    ui->dreierpasch->setText("---");
+    ui->viererpasch->setText("---");
+    ui->fullhouse->setText("---");
+    ui->grossestrasse->setText("---");
+    ui->kleinestrasse->setText("---");
+    ui->kniffel->setText("---");
+    ui->chance->setText("---");
+
+    ui->button_einser->setEnabled(true);
+    ui->button_zweier->setEnabled(true);
+    ui->button_dreier->setEnabled(true);
+    ui->button_vierer->setEnabled(true);
+    ui->button_fuenfer->setEnabled(true);
+    ui->button_sechser->setEnabled(true);
+    ui->button_drp->setEnabled(true);
+    ui->buttonvip->setEnabled(true);
+    ui->button_fh->setEnabled(true);
+    ui->button_ks->setEnabled(true);
+    ui->button_gs->setEnabled(true);
+    ui->button_kniffel->setEnabled(true);
+    ui->button_chance->setEnabled(true);
+
+    ui->wuerfeln->setEnabled(true);
+    reroll_counter = 2;
+    ui->reroll->setText("Nochmal würfeln (" + QString::number(reroll_counter) + ")");
+    ui->reroll->setEnabled(true);
+
+    for(int i = 0; i < dices_size; i++){
+        dices[i] = 0;
+    }
+    ui->dice1->display(dices[0]);
+    ui->dice2->display(dices[1]);
+    ui->dice3->display(dices[2]);
+    ui->dice4->display(dices[3]);
+    ui->dice5->display(dices[4]);
+
+
+    calculateScoreTop();
+    calculateScoreBottom();
+    calculateOverallScore();
 }

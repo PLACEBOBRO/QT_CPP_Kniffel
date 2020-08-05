@@ -56,6 +56,8 @@ private slots:
 
     void resetRerollCounter();
 
+    void on_restart_clicked();
+
 private:
     Ui::GameFrame *ui;
 };

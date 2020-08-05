@@ -566,6 +566,19 @@
     <string>Nochmal würfeln (2)</string>
    </property>
   </widget>
+  <widget class="QPushButton" name="restart">
+   <property name="geometry">
+    <rect>
+     <x>570</x>
+     <y>730</y>
+     <width>131</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Neustart</string>
+   </property>
+  </widget>
  </widget>
  <resources/>
  <connections/>
